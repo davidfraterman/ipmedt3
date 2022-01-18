@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-entity camera wasd-controls look-controls></a-entity>
+        <a-entity environment></a-entity>
+
+
+
+
+
+    </a-scene>
+</body>
+
+</html> -->
+
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script
+        src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-entity
+            environment="preset: starry; lightPosition: 9.5 0.92 -6.55; dressing: stones; dressingAmount: 1000; dressingScale: 0.33; dressingVariance: NaN NaN 1; shadow: true; playArea: 1.4; groundYScale: 36.25; groundTexture: walkernoise; groundColor2: #ddd9d5; skyType: atmosphere; skyColor: #030303; horizonColor: #baa6a6; lighting: point; shadowSize: 10.4; fog: 0.63; groundColor: #fcfcfc; dressingColor: #d2c9c6; dressingUniformScale: false; dressingOnPlayArea: 0.18; gridColor: #050505; active: true"
+            visible="">
+
+        </a-entity>
+
+        <a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 36.25"
+            shadow="cast: false"></a-entity>
+        <a-entity class="environmentDressing environment" visible=""></a-entity>
+        <a-sky radius="200" theta-length="110" class="environment"
+            material="shader: skyshader; sunPosition: 0.8127912537176173 0.5913597178050193 -0.5603981801947783"
+            visible="" geometry=""></a-sky>
+        <a-entity id="stars" visible=""></a-entity>
+        <a-entity class="environment" position="0 50 0"
+            light="type: hemisphere; color: #CEE4F0; intensity: 0.43973811068126293; groundColor: #fcfcfc" visible="">
+        </a-entity>
+
+
+
+
+        </a-entity>
+        <a-camera position="0 1.8 0" wasd-controls="acceleration: 35"></a-camera>
+        <a-sphere material="shader: gradientshader; topColor: #221c1c; bottomColor: #b52626" position="0 4 0">
+            </a-box>
+    </a-scene>
+</body>
+
+</html>
