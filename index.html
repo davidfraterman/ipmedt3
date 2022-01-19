@@ -12,10 +12,15 @@
 </head>
 
 <body>
-    <a-scene>
+    <a-scene stats>
+        <!-- Asset Management System -->
+        <a-assets>
+            <a-asset-item id="rocketship" src="rocket.obj"></a-asset-item>
+        </a-assets>
+
         <!-- Environment -->
         <a-entity
-            environment="preset: starry; lightPosition: 9.5 0.92 -6.55; dressing: stones; dressingAmount: 1000; dressingScale: 0.33; dressingVariance: NaN NaN 1; shadow: true; playArea: 1.4; groundYScale: 36.25; groundTexture: walkernoise; groundColor2: #ddd9d5; skyType: atmosphere; skyColor: #030303; horizonColor: #baa6a6; lighting: point; shadowSize: 10.4; fog: 0.63; groundColor: #fcfcfc; dressingColor: #d2c9c6; dressingUniformScale: false; dressingOnPlayArea: 0.18; gridColor: #050505; active: true"
+            environment="preset: starry; lightPosition: 9.5 0.92 -6.55; dressing: stones; dressingAmount: 1200; dressingScale: 0.33; dressingVariance: NaN NaN 1; shadow: true; playArea: 1.4; groundYScale: 36.25; groundTexture: walkernoise; groundColor2: #ddd9d5; skyType: atmosphere; skyColor: #030303; horizonColor: #baa6a6; lighting: point; shadowSize: 10.4; fog: 0.63; groundColor: #fcfcfc; dressingColor: #d2c9c6; dressingUniformScale: false; dressingOnPlayArea: 0.18; gridColor: #050505; active: true"
             visible="">
         </a-entity>
 
@@ -34,8 +39,8 @@
         <a-camera position="0 1.8 0" wasd-controls="acceleration: 35"></a-camera>
 
         <!-- Objects -->
-        <a-sphere material="shader: gradientshader; topColor: #221c1c; bottomColor: #b52626" position="0 4 0">
-            </a-box>
+        <a-entity obj-model="obj: #rocketship" scale="20 20 20" position="40 0 0"></a-entity>
+
     </a-scene>
 </body>
 
