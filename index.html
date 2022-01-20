@@ -18,7 +18,8 @@
         <!-- Asset Management System -->
         <a-assets>
             <a-asset-item id="rocketship" src="/assets/rocket.obj"></a-asset-item>
-            <img id="paint-NRM" src="assets/paint-NRM.jpg"></img>
+            <a-asset-item id="control-table" src='/assets/control-table.obj'></a-asset-item>
+
         </a-assets>
 
         <!-- Environment -->
@@ -41,24 +42,27 @@
                     roughness="0.3">
                 </a-entity>
 
-                <!-- Sphere source -->
-                <!-- <a-entity position="0 3 -3">
-                    <a-sphere src="/assets/paint.jpg" normal-texture-repeat="1 1" normal-scale="1 -1"
-                        normal-map="#paint-NRM" opacity="0.8" color="red" position="0 -2 0" scale="0.5 0.5 0.5"
-                        roughness="0.3"></a-sphere>
-                </a-entity> -->
-
                 <!-- Screen -->
                 <a-entity position="0 10 -20">
                     <a-box material="" geometry="" scale="0.75 9 16" rotation="0 90 0">
-                        <a-text value="WELCOME TO THE REBUSVERSE" position="-0.75 0 0"
-                            text="align: center; color: #FF3300" scale="0.25 0.25 0.25" rotation="0 -90 0" visible=""
-                            font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
-                        </a-text>
-                        <a-text value="Made by: Hannah, Dennis en David" position="-0.75 -0.1 0"
-                            text="align: center; color: #4F0000" scale="0.15 0.15 0.15" rotation="0 -90 0" visible=""
-                            font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
-                        </a-text>
+                        <!-- Text -->
+                        <a-entity position="-0.60 .1 0">
+                            <a-text value="WELCOME TO THE REBUSVERSE" text="align: center; color: #FF3300"
+                                scale="0.25 0.25 0.25" rotation="0 -90 0" visible=""
+                                font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
+                            </a-text>
+                            <a-text value="Made by: Hannah, Dennis en David" position="0 -0.1 0"
+                                text="align: center; color: #4F0000" scale="0.15 0.15 0.15" rotation="0 -90 0"
+                                visible="" font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
+                            </a-text>
+                            <a-text value="START" position="0 -0.3 0" text="align: center; color: #4F0000"
+                                scale="0.35 0.35 0.35" rotation="0 -90 0" visible=""
+                                font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
+
+                                </a-animation>
+                            </a-text>
+                        </a-entity>
+                        <!-- Light -->
                         <a-light type="point" position="-3 0 0" color="#FFF" intensity="6" rotation="0 0 90"
                             distance="30" light="">
                         </a-light>
@@ -66,8 +70,12 @@
                 </a-entity>
 
                 <!-- Screen Controls -->
-                <a-box material="" geometry="" scale="0.2 1 0.2" position="0 0.5 -3.41706"></a-box>
-                
+                <a-entity material="color:grey" position="0 0 -3" control-table
+                    obj-model="obj: /assets/control-table.obj">
+                    <a-cylinder red-button position="0 1.0 0.2" material="color: #ff0000" geometry=""
+                        scale="0.1 0.1 0.1" rotation="17.69 0.31 0" roughness="0.1">
+                    </a-cylinder>
+                </a-entity>
 
 
             </a-entity>
