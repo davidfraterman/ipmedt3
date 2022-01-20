@@ -18,7 +18,8 @@
         <!-- Asset Management System -->
         <a-assets>
             <a-asset-item id="rocketship" src="/assets/rocket.obj"></a-asset-item>
-            <img id="metal-wall-NRM" src="assets/metal-wall-NRM.jpg"></a-asset-item>
+            <img id="metal-wall-NRM" src="assets/metal-wall-NRM.jpg"></img>
+            <img id="paint-NRM" src="assets/paint-NRM.jpg"></img>
         </a-assets>
 
         <!-- Environment -->
@@ -43,10 +44,10 @@
             <!-- Camera -->
             <a-entity position="20 0 10">
                 <a-camera position="0 1.65 0" wasd-controls="acceleration: 35" look-controls="">
-                    <a-cursor
-                        animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-                        animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-                        animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1">
+                    <a-cursor position="0 0 -0.15" color="black" scale="0.2 0.2 0.2"
+                        animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 0.2 0.2 0.2"
+                        animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 0.2 0.2 0.2; to: 0.1 0.1 0.1"
+                        animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 0.2 0.2 0.2">
                     </a-cursor>
                 </a-camera>
             </a-entity>
@@ -69,13 +70,15 @@
         </a-entity>
 
         <!-- Rocket Ship -->
-        <a-entity rocket-ship obj-model="obj: #rocketship" scale="20 20 20" position="40 0 0"></a-entity>
+        <a-entity rocket-ship obj-model="obj: #rocketship" scale="20 20 20" position="40 0 0" roughness="0.3">
+        </a-entity>
 
         <!-- Light source -->
+
         <a-entity position="6 2 10">
-            <a-entity id="light" light="color: red; decay: 0; distance: 0.1; intensity: 0.2; shadowBias: -0.18">
-            </a-entity>
-            <a-sphere position="0 0 0" scale="0.5 0.5 0.5" material="color:red;"></a-sphere>
+            <a-light type="point" color="#FFF" intensity="0.5" distance="30"></a-light>
+            <a-sphere src="/assets/paint.jpg" normal-texture-repeat="1 1" normal-scale="1 -1" normal-map="#paint-NRM"
+                opacity="0.8" color="red" position="0 0 0" scale="0.5 0.5 0.5" roughness="0.3"></a-sphere>
         </a-entity>
 
 
