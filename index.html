@@ -18,29 +18,11 @@
         <!-- Asset Management System -->
         <a-assets>
             <a-asset-item id="rocketship" src="/assets/rocket.obj"></a-asset-item>
-            <img id="metal-wall-NRM" src="assets/metal-wall-NRM.jpg"></img>
             <img id="paint-NRM" src="assets/paint-NRM.jpg"></img>
         </a-assets>
 
         <!-- Environment -->
-        <a-entity>
-            <a-entity
-                environment="preset: starry; lightPosition: 9.5 0.92 -6.55; dressing: stones; dressingAmount: 1200; dressingScale: 0.33; dressingVariance: NaN NaN 1; shadow: true; playArea: 1.4; groundYScale: 36.25; groundTexture: walkernoise; groundColor2: #ddd9d5; skyType: atmosphere; skyColor: #030303; horizonColor: #baa6a6; lighting: point; shadowSize: 10.4; fog: 0.63; groundColor: #fcfcfc; dressingColor: #d2c9c6; dressingUniformScale: false; dressingOnPlayArea: 0.18; grid: false; active: true"
-                visible="">
-            </a-entity>
-
-            <a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 36.25"
-                shadow="cast: false"></a-entity>
-            <a-entity class="environmentDressing environment" visible=""></a-entity>
-            <a-sky radius="200" theta-length="110" class="environment"
-                material="shader: skyshader; sunPosition: 0.8127912537176173 0.5913597178050193 -0.5603981801947783"
-                visible="" geometry=""></a-sky>
-            <a-entity id="stars" visible=""></a-entity>
-            <a-entity class="environment" position="0 50 0"
-                light="type: hemisphere; color: #CEE4F0; intensity: 0.43973811068126293; groundColor: #fcfcfc"
-                visible="">
-            </a-entity>
-
+        <a-entity environment="preset:starry;">
             <!-- Camera -->
             <a-entity position="20 0 10">
                 <a-camera position="0 1.65 0" wasd-controls="acceleration: 35" look-controls="">
@@ -55,33 +37,18 @@
 
         <!-- Objects -->
         <a-entity>
-            <!-- normal map = 3d gevoel, roughness = reflectiviteit -->
-            <a-box width="4" height="4" depth="4" position="-4 2 0" src="/assets/metal-wall.jpg"
-                normal-map="#metal-wall-NRM" normal-texture-repeat="1 1" normal-scale="1 -1" roughness="0.7"></a-box>
-            <a-box width="4" height="4" depth="4" position="0 2 0" src="/assets/metal-wall.jpg"
-                normal-map="#metal-wall-NRM" normal-texture-repeat="1 1" normal-scale="1 -1" roughness="0.7">
-                <a-entity
-                    text="font: https://cdn.aframe.io/fonts/Exo2SemiBold.fnt;value: Rebus Game;align:center;opacity:0.7"
-                    position="0 0 2.05" scale="20 20">
-                </a-entity>
-            </a-box>
-            <a-box width="4" height="4" depth="4" position="4 2 0" src="/assets/metal-wall.jpg"
-                normal-map="#metal-wall-NRM" normal-texture-repeat="1 1" normal-scale="1 -1" roughness="0.7"></a-box>
+            <!-- Rocket Ship -->
+            <a-entity rocket-ship obj-model="obj: #rocketship" scale="20 20 20" position="40 0 0" roughness="0.3">
+            </a-entity>
+
+            <!-- Light source -->
+            <a-entity position="6 2 10">
+                <a-light type="point" color="#FFF" intensity="0.5" distance="30"></a-light>
+                <a-sphere src="/assets/paint.jpg" normal-texture-repeat="1 1" normal-scale="1 -1"
+                    normal-map="#paint-NRM" opacity="0.8" color="red" position="0 0 0" scale="0.5 0.5 0.5"
+                    roughness="0.3"></a-sphere>
+            </a-entity>
         </a-entity>
-
-        <!-- Rocket Ship -->
-        <a-entity rocket-ship obj-model="obj: #rocketship" scale="20 20 20" position="40 0 0" roughness="0.3">
-        </a-entity>
-
-        <!-- Light source -->
-
-        <a-entity position="6 2 10">
-            <a-light type="point" color="#FFF" intensity="0.5" distance="30"></a-light>
-            <a-sphere src="/assets/paint.jpg" normal-texture-repeat="1 1" normal-scale="1 -1" normal-map="#paint-NRM"
-                opacity="0.8" color="red" position="0 0 0" scale="0.5 0.5 0.5" roughness="0.3"></a-sphere>
-        </a-entity>
-
-
     </a-scene>
 </body>
 
