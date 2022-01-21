@@ -32,6 +32,9 @@
             <a-asset-item id="rebus_2_text_4" src='./assets/Rebus_2/Rebus_2_Text_4.obj'></a-asset-item>
 
             <!-- Office Stuff -->
+            <a-asset-item id="wall" src="./assets/wall.gltf"></a-asset-item>
+            <a-asset-item id="roof" src="./assets/roof.gltf"></a-asset-item>
+
             <a-asset-item id="chair" src="./assets/chair.obj"></a-asset-item>
             <a-asset-item id="triple-monitor" src="./assets/triple-monitor.gltf"></a-asset-item>
             <a-asset-item id="big-screen" src="./assets/big-screen.gltf"></a-asset-item>
@@ -63,7 +66,7 @@
             <a-image class="destinations" gltf-model="#waypoint" position="-8 4 -2" rotation="0 90 0"></a-image>
 
             <!-- Rebus -->
-            <a-entity>
+            <a-entity scale="0.3 0.3 0.3">
 
                 <a-entity id="rebus_2_plaatje_1" obj-model="obj: #rebus_2_plaatje_1" position="6 4 5"
                     rotation="90 180 0"></a-entity>
@@ -86,6 +89,13 @@
 
             <!-- Control Room -->
             <a-entity rotation="0 180 0">
+                <!-- Muren, plafond etc -->
+                <a-entity scale="0.75 0.75 0.75">
+                    <a-entity gltf-model="#wall" position="-8 0 -9"></a-entity>
+                    <a-entity gltf-model="#roof" position="15 8 0"></a-entity>
+                </a-entity>
+
+
                 <a-entity obj-model="obj: #chair" scale="0.015 0.015 0.015" position="0 0 0" material="color:black;">
                 </a-entity>
 
@@ -109,13 +119,13 @@
                 </a-entity>
 
                 <!-- Control Room Licht -->
-                <a-entity gltf-model="#tl-buis" position="0 7 0" rotation="0 90 0">
-                    <a-light type="point" position="0 -0.8 0" color="#FFF" intensity="3" distance="30" light="">
+                <a-entity gltf-model="#tl-buis" position="0 6 0" rotation="0 90 0">
+                    <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
                     </a-light>
                 </a-entity>
 
-                <a-entity gltf-model="#tl-buis" position="10 7 0" rotation="0 90 0">
-                    <a-light type="point" position="0 -0.8 0" color="#FFF" intensity="3" distance="30" light="">
+                <a-entity gltf-model="#tl-buis" position="13 6 0" rotation="0 90 0">
+                    <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
                     </a-light>
                 </a-entity>
 
