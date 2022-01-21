@@ -181,16 +181,15 @@
     "materials" : [
         {
             "doubleSided" : true,
-            "name" : "Material",
+            "name" : "Material.009",
             "pbrMetallicRoughness" : {
                 "baseColorFactor" : [
                     0,
-                    0.031601205468177795,
-                    0.11068866401910782,
+                    0.034915391355752945,
+                    0.10653480887413025,
                     1
                 ],
-                "metallicFactor" : 0,
-                "roughnessFactor" : 0.8852940797805786
+                "metallicFactor" : 0
             }
         },
         {
