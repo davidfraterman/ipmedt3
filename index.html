@@ -35,13 +35,14 @@
             <a-asset-item id="laptop" src="./assets/laptop.gltf"></a-asset-item>
             <a-asset-item id="printer" src="./assets/printer.gltf"></a-asset-item>
             <a-asset-item id="lopende-band" src="./assets/lopende-band.gltf"></a-asset-item>
+            <a-asset-item id="tl-buis" src="./assets/tl-buis.gltf"></a-asset-item>
         </a-assets>
 
         <!-- Environment -->
         <a-entity environment="preset:starry;groundColor: #141414;">
             <!-- Camera -->
-            <a-entity position="0 0 0">
-                <a-camera position="0 1.65 0" wasd-controls="acceleration: 25" look-controls="">
+            <a-entity id="camera" position="0 0 0">
+                <a-camera position="0 1.7 0" wasd-controls="acceleration: 25" look-controls="">
                     <a-cursor position="0 0 -0.15" color="black" scale="0.2 0.2 0.2"
                         animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 0.2 0.2 0.2"
                         animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 0.2 0.2 0.2; to: 0.1 0.1 0.1"
@@ -49,6 +50,10 @@
                     </a-cursor>
                 </a-camera>
             </a-entity>
+
+            <!-- Walk Locations -->
+            <a-image class="destinations" src="./img/walk-icon.png" position="0 4 -2" rotation="0 -45 0"></a-image>
+            <a-image class="destinations" src="./img/walk-icon.png" position="-8 4 -2" rotation="0 90 0"></a-image>
 
             <!-- Rebus -->
             <a-entity>
@@ -86,28 +91,38 @@
                 <a-entity gltf-model="#laptop" position="3 1 2" rotation="0 90 0" scale='1.3 1.3 1.3'>
                 </a-entity>
 
-                <a-entity gltf-model="#printer" position="10 0 2" rotation="0 250 0" scale='0.8 0.8 0.8'>
+                <a-entity gltf-model="#printer" position="10 0 2" rotation="0 250 0" scale='0.85 0.85 0.85'>
                     <a-text value="Image Teleporation Device: OFF" position="-0.66 0.8 0.8" rotation="-25 0 0"
                         scale="0.3 0.3 0.3">
                     </a-text>
                 </a-entity>
 
                 <a-entity gltf-model="#lopende-band" position="10 0 -3" rotation="0 250 0" scale='0.6 0.6 0.6'>
-                    <a-text value="Image Teleporation Device: OFF" position="-0.677 3.5 0.377" rotation="0 90 0"
+                    <a-text value="Text Teleporation Device: OFF" position="0.178 3.5 0.02" rotation="0 90 0"
                         scale="0.3 0.3 0.3">
                     </a-text>
                 </a-entity>
 
-                <!-- Walk Locations -->
-                <a-image src="./img/walk-icon.png" position="0 4 4"></a-image>
+                <!-- Control Room Licht -->
+                <a-entity gltf-model="#tl-buis" position="0 7 0" rotation="0 90 0">
+                    <a-light type="point" position="0 -0.8 0" color="#FFF" intensity="3" distance="30" light="">
+                    </a-light>
+                </a-entity>
+
+                <a-entity gltf-model="#tl-buis" position="10 7 0" rotation="0 90 0">
+                    <a-light type="point" position="0 -0.8 0" color="#FFF" intensity="3" distance="30" light="">
+                    </a-light>
+                </a-entity>
+
+
 
             </a-entity>
 
             <!-- Screen -->
-            <a-entity position="0 10 -20">
-                <a-box material="" geometry="" scale="0.75 9 16" rotation="0 90 0">
-                    <!-- Text -->
-                    <a-entity position="-0.60 .1 0" id="text">
+            <!-- <a-entity position="0 10 -20">
+                <a-box material="" geometry="" scale="0.75 9 16" rotation="0 90 0"> -->
+            <!-- Text -->
+            <!-- <a-entity position="-0.60 .1 0" id="text">
                         <a-text value="WELCOME TO THE REBUSVERSE" text="align: center; color: #FF3300"
                             scale="0.25 0.25 0.25" rotation="0 -90 0" visible=""
                             font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
@@ -121,12 +136,11 @@
                             font="https://cdn.aframe.io/fonts/Exo2SemiBold.fnt">
                         </a-text>
                     </a-entity>
-                    <!-- Light -->
-                    <a-light type="point" position="-3 0 0" color="#FFF" intensity="6" rotation="0 0 90" distance="30"
-                        light="">
-                    </a-light>
-                </a-box>
-            </a-entity>
+                     Light -->
+            <!-- <a-light type="point" position="-3 0 0" color="#FFF" intensity="6" rotation="0 0 90" distance="30" light="">
+            </a-light>
+            </a-box> -->
+        </a-entity> -->
 
         </a-entity>
 
