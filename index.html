@@ -27,6 +27,8 @@
             <a-asset-item id="control-table" src='./assets/control-table.obj'></a-asset-item>
             <a-asset-item id="triple-monitor" src="./assets/triple-monitor.obj"></a-asset-item>
             <a-asset-item id="triple-monitor-MTL" src="./assets/triple-monitor.mtl"></a-asset-item>
+            <a-asset-item id="big-screen" src="./assets/big-screen.obj"></a-asset-item>
+            <a-asset-item id="big-screen-MTL" src='./assets/big-screen.mtl'></a-asset-item>
         </a-assets>
 
         <!-- Environment -->
@@ -84,18 +86,21 @@
                     <a-cylinder id="red-button" red-button position="0 1.0 0.2" material="color: #ff0000" geometry=""
                         scale="0.1 0.1 0.1" rotation="17.69 0.31 0" roughness="0.1">
                     </a-cylinder>
-                    <a-light type="point" position="0 1 0" color="yellow" intensity="2" rotation="0 0 90" distance="30"
-                        light="">
-                    </a-light>
-                    </a-light>
+
+
                 </a-entity>
 
-                <a-entity obj-model="obj: #chair" scale="0.015 0.015 0.015" rotation="0 180 0" position="0 0 0"
-                    material="color:black;"></a-entity>
+                <!-- Office Stuff -->
+                <a-entity rotation="0 180 0">
+                    <a-entity obj-model="obj: #chair" scale="0.015 0.015 0.015" position="0 0 0"
+                        material="color:black;"></a-entity>
 
-                <a-entity obj-model="obj: #triple-monitor; mtl: #triple-monitor-MTL" scale="1.75 1.75"
-                    rotation="0 180 0" position="-1 1.23 -2.8" material="color:black;"></a-entity>
+                    <a-entity obj-model="obj: #triple-monitor; mtl: #triple-monitor-MTL" scale="1.75 1.75"
+                        position="1 1.23 2.8" material="color:black;"></a-entity>
 
+                    <a-entity obj-model="obj: #big-screen; mtl: #big-screen-MTL" position="4 1 3" rotation="0 90 0">
+                    </a-entity>
+                </a-entity>
             </a-entity>
         </a-entity>
     </a-scene>
