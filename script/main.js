@@ -1,4 +1,4 @@
-// Gaze based walking
+// Lopen door te kliken op voeten
 window.onload = function () {
   let camera = document.getElementById("camera");
   let destinations = document.getElementsByClassName("destinations");
