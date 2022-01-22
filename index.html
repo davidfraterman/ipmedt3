@@ -35,7 +35,6 @@
             <a-asset-item id="wall" src="./assets/wall.gltf"></a-asset-item>
             <a-asset-item id="roof" src="./assets/roof.gltf"></a-asset-item>
 
-            <a-asset-item id="chair" src="./assets/chair.obj"></a-asset-item>
             <a-asset-item id="triple-monitor" src="./assets/triple-monitor.gltf"></a-asset-item>
             <a-asset-item id="big-screen" src="./assets/big-screen.gltf"></a-asset-item>
             <a-asset-item id="laptop" src="./assets/laptop.gltf"></a-asset-item>
@@ -62,31 +61,33 @@
             </a-entity>
 
             <!-- Way points -->
-            <a-image class="destinations" gltf-model="#waypoint" position="-10.8 3 -4.7" rotation="0 45 0"
+            <a-image class="destinations" gltf-model="#waypoint" position="-9.3 3 -2.9" rotation="0 45 0"
                 scale="0.8 0.8 0.8">
             </a-image>
-            <a-image class="destinations" gltf-model="#waypoint" position="-11.5 3 0.1" rotation="0 90 0"
+            <a-image class="destinations" gltf-model="#waypoint" position="-9.4 3 1.5" rotation="0 90 0"
                 scale="0.8 0.8 0.8">
+            </a-image>
+            <a-image class="destinations" gltf-model="#waypoint" position="7 3 0" rotation="0 90 0" scale="0.8 0.8 0.8">
             </a-image>
 
             <!-- Rebus -->
             <a-entity scale="0.3 0.3 0.3">
 
-                <a-entity id="rebus_2_plaatje_1" obj-model="obj: #rebus_2_plaatje_1" position="6 4 5"
-                    rotation="90 180 0"></a-entity>
-                <a-entity id="rebus_2_text_1" obj-model="obj: #rebus_2_text_1" position="6 4 5" rotation="90 180 0">
+                <a-entity id="rebus_2_plaatje_1" gltf-model="#rebus_2_plaatje_1" position="6 4 5" rotation="90 180 0">
                 </a-entity>
-                <a-entity id="rebus_2_plaatje_2" obj-model="obj: #rebus_2_plaatje_2" position="2 4 5"
-                    rotation="90 180 0"></a-entity>
-                <a-entity id="rebus_2_text_2" obj-model="obj: #rebus_2_text_2" position="2 4 5" rotation="90 180 0">
+                <a-entity id="rebus_2_text_1" gltf-model="#rebus_2_text_1" position="6 4 5" rotation="90 180 0">
                 </a-entity>
-                <a-entity id="rebus_2_plaatje_3" obj-model="obj: #rebus_2_plaatje_3" position="-2 4 5"
-                    rotation="90 180 0"></a-entity>
-                <a-entity id="rebus_2_text_3" obj-model="obj: #rebus_2_text_3" position="-2 4 5" rotation="90 180 0">
+                <a-entity id="rebus_2_plaatje_2" gltf-model="#rebus_2_plaatje_2" position="2 4 5" rotation="90 180 0">
                 </a-entity>
-                <a-entity id="rebus_2_plaatje_4" obj-model="obj: #rebus_2_plaatje_4" position="-6 4 5"
-                    rotation="90 180 0"></a-entity>
-                <a-entity id="rebus_2_text_4" obj-model="obj: #rebus_2_text_4" position="-6 4 5" rotation="90 180 0">
+                <a-entity id="rebus_2_text_2" gltf-model="#rebus_2_text_2" position="2 4 5" rotation="90 180 0">
+                </a-entity>
+                <a-entity id="rebus_2_plaatje_3" gltf-model="#rebus_2_plaatje_3" position="-2 4 5" rotation="90 180 0">
+                </a-entity>
+                <a-entity id="rebus_2_text_3" gltf-model="#rebus_2_text_3" position="-2 4 5" rotation="90 180 0">
+                </a-entity>
+                <a-entity id="rebus_2_plaatje_4" gltf-model="#rebus_2_plaatje_4" position="-6 4 5" rotation="90 180 0">
+                </a-entity>
+                <a-entity id="rebus_2_text_4" gltf-model="#rebus_2_text_4" position="-6 4 5" rotation="90 180 0">
                 </a-entity>
 
             </a-entity>
@@ -95,50 +96,59 @@
             <a-entity rotation="0 180 0">
                 <!-- Muren, plafond etc -->
                 <a-entity scale="0.75 0.75 0.75">
-                    <a-entity gltf-model="#wall" position="-8 0 -9"></a-entity>
+                    <a-entity gltf-model="#wall"></a-entity>
                     <!-- <a-entity gltf-model="#roof" position="15 8 0"></a-entity> -->
                 </a-entity>
 
+                <!-- Control center -->
+                <a-entity rotation="0 -90 0" position="-5 0 0">
 
-                <a-entity obj-model="obj: #chair" scale="0.015 0.015 0.015" position="0 0 0" material="color:black;">
-                </a-entity>
+                    <a-entity gltf-model="#triple-monitor" scale="1.75 1.75" position="1 1.23 2.8">
+                    </a-entity>
 
-                <a-entity gltf-model="#triple-monitor" scale="1.75 1.75" position="1 1.23 2.8">
-                </a-entity>
+                    <a-entity gltf-model="#big-screen" position="0 4 4" rotation="0 90 -20">
+                    </a-entity>
 
-                <a-entity gltf-model="#big-screen" position="0 4 4" rotation="0 90 -20">
-                </a-entity>
-
-                <a-entity gltf-model="#laptop" position="3 1 2" rotation="0 90 0" scale='1.3 1.3 1.3'>
-                </a-entity>
-
-                <!-- Printers -->
-
-                <a-entity gltf-model="#printer" position="12.5 0 5.5" rotation="0 -120 0" scale='0.85 0.85 0.85'>
-                    <a-text value="STAAT UIT" position="-0.66 0.8 0.8" rotation="-25 0 0">
-                    </a-text>
-                    <a-entity id="rebus_2_plaatje_1" obj-model="obj: #rebus_2_plaatje_1" position="0.4 0.9 -0.1"
-                        scale="0.3 0.3 0.3" rotation="90 180 0"
-                        animation="property: rotation; to: 90 -180 0; loop: true; dur: 3000; easing: linear;">
-
+                    <a-entity gltf-model="#laptop" position="3 1 2" rotation="0 90 0" scale='1.3 1.3 1.3'>
                     </a-entity>
                 </a-entity>
 
-                <a-entity gltf-model="#lopende-band" position="13 0 -3" rotation="0 -120 0" scale='0.6 0.6 0.6'>
-                    <a-text value="STAAT UIT" position="0.178 3.5 0.02" rotation="0 90 0">
-                    </a-text>
+
+                <!-- Printers -->
+                <a-entity position="11 0 0">
+                    <a-entity gltf-model="#printer" position="0 0 4" rotation="0 -120 0" scale='0.85 0.85 0.85'>
+                        <a-text value="STAAT UIT" position="-0.66 0.8 0.8" rotation="-25 0 0">
+                        </a-text>
+                        <a-entity gltf-model="#rebus_2_plaatje_1" position="0 1.3 -0.1" scale="0.3 0.3 0.3"
+                            rotation="90 180 0"
+                            animation="property: rotation; to: 90 -180 0; loop: true; dur: 4000; easing: linear;">
+                        </a-entity>
+                    </a-entity>
+
+                    <a-entity gltf-model="#lopende-band" position="0 0 -4" rotation="0 -120 0" scale='0.6 0.6 0.6'>
+                        <a-text value="STAAT UIT" position="0.178 3.5 0.02" rotation="0 90 0">
+                        </a-text>
+                        <a-entity gltf-model="#rebus_2_text_1" position="2.67 1.9 0" scale="0.5 0.5 0.5"
+                            rotation="90 180 0"
+                            animation="property: rotation; to: 90 -180 0; loop: true; dur: 4000; easing: linear;">
+                        </a-entity>
+                    </a-entity>
                 </a-entity>
+
 
                 <!-- Control Room Licht -->
-                <a-entity gltf-model="#tl-buis" position="0 6 0" rotation="0 90 0">
-                    <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
-                    </a-light>
+                <a-entity>
+                    <a-entity gltf-model="#tl-buis" position="-5 6 0" rotation="0 0 0">
+                        <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
+                        </a-light>
+                    </a-entity>
+
+                    <a-entity gltf-model="#tl-buis" position="5 6 0" rotation="0 0 0">
+                        <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
+                        </a-light>
+                    </a-entity>
                 </a-entity>
 
-                <a-entity gltf-model="#tl-buis" position="13 6 0" rotation="0 90 0">
-                    <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
-                    </a-light>
-                </a-entity>
 
 
 

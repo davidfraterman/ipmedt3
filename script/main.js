@@ -9,7 +9,7 @@ window.onload = function () {
       console.log(event.target);
       // camera.setAttribute("position", event.target.getAttribute("position"));
       let att = document.createAttribute("animation");
-      att.value = `property: position; easing: linear; dur: 1000; to: ${
+      att.value = `property: position; easing: easeInOutSine; dur: 2000; to: ${
         event.target.getAttribute("position").x
       } 0 ${event.target.getAttribute("position").z}`;
       camera.setAttribute("animation", att.value);
