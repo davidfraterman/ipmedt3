@@ -56,7 +56,8 @@
         <!-- Environment -->
         <a-entity environment="preset:starry;groundColor: #0f0f0f; gridColor: #0095ff;">
         </a-entity>
-
+        
+        <a-entity id="camerarig" position="0 1.6 0">
         <a-entity camera wasd-controls="acceleration: 30" look-controls position="0 1.6 0" id='js--camera'>
             <a-entity
                 animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -67,6 +68,7 @@
             </a-entity>
         </a-entity>
         </a-entity>
+        /a-entity>
 
         <!-- Way points -->
         <a-entity position="0 3 0">
