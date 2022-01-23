@@ -40,7 +40,7 @@ window.onload = function () {
         sphere.setAttribute("position", {
           x: -this.getAttribute("position").x,
           y: 2.1,
-          z: -6.5,
+          z: -6,
         });
         sphere.innerHTML += temphold;
         scene.appendChild(sphere);
