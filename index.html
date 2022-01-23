@@ -33,8 +33,7 @@
             <a-asset-item id="rebus_2_text_4" src='./assets/Rebus_2/Rebus_2_Text_4.gltf'></a-asset-item>
 
             <!-- Office Stuff -->
-            <a-asset-item id="wall" src="./assets/wall.gltf"></a-asset-item>
-            <a-asset-item id="roof" src="./assets/roof.gltf"></a-asset-item>
+
 
             <a-asset-item id="triple-monitor" src="./assets/triple-monitor.gltf"></a-asset-item>
             <a-asset-item id="big-screen" src="./assets/big-screen.gltf"></a-asset-item>
@@ -42,25 +41,16 @@
             <a-asset-item id="printer" src="./assets/printer.gltf"></a-asset-item>
             <a-asset-item id="lopende-band" src="./assets/lopende-band.gltf"></a-asset-item>
             <a-asset-item id="tl-buis" src="./assets/tl-buis.gltf"></a-asset-item>
+            <a-asset-item id="chair" src='./assets/chair.gltf'></a-asset-item>
+
+            <!-- Building -->
+            <a-asset-item id="wall" src="./assets/wall.gltf"></a-asset-item>
+            <a-asset-item id="deur" src="./assets/deur.gltf"></a-asset-item>
+            <a-asset-item id="floor" src='./assets/floor.gltf'></a-asset-item>
         </a-assets>
 
         <!-- Environment -->
-        <a-entity environment="preset:starry;groundColor: #141414;">
-            <!-- Camera -->
-            <!-- <a-entity position="0 0 0" rotation="0 -90 0">
-                <a-camera  id="js--camera" position="0 1.60 0" wasd-controls="acceleration: 25" look-controls="" >
-                    <a-cursor 
-                        scale="0.15 0.15 0.15"
-                        animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 0.15 0.15 0.15"
-                        animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 0.1 0.1 0.1; to: 0.15 0.15 0.15"
-                        animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 0.15 0.15 0.15"
-                        material="color: black; shader: flat"
-                        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
-                        cursor="fuse: true; fuseTimeout: 500" position="0 0 -0.15"
-                        raycaster="far:20;interval:1000;objects:.clickable"
-                        id="js--cursor">
-                    </a-cursor>
-                </a-camera>  -->
+        <a-entity environment="preset:starry;groundColor: #0f0f0f; gridColor: #0095ff;">
             </a-entity>
 
             <a-entity camera wasd-controls look-controls position="0 1.6 0" id='js--camera'>
@@ -77,14 +67,25 @@
             </a-entity>
 
             <!-- Way points -->
-            <a-image walker class="clickable" gltf-model="#waypoint" position="-9.3 3 -2.9" rotation="0 45 0"
-                scale="0.8 0.8 0.8">
-            </a-image>
-            <a-image walker class="clickable" gltf-model="#waypoint" position="-9.4 3 1.5" rotation="0 90 0"
-                scale="0.8 0.8 0.8">
-            </a-image>
-            <a-image walker class="clickable" gltf-model="#waypoint" position="7 3 0" rotation="0 90 0" scale="0.8 0.8 0.8">
-            </a-image>
+            <a-entity>
+                <!-- Printer -->
+                <a-entity walker class="clickable" gltf-model="#waypoint" position="-9.3 3 -2.9" rotation="0 45 0"
+                    scale="0.8 0.8 0.8">
+                </a-entity>
+                <!-- Lopende band -->
+                <a-entity walker class="clickable" gltf-model="#waypoint" position="-9.4 3 1.5" rotation="0 90 0"
+                    scale="0.8 0.8 0.8">
+                </a-entity>
+                <!-- Control center -->
+                <a-entity walker class="clickable" gltf-model="#waypoint" position="7 3 0" rotation="0 90 0"
+                    scale="0.8 0.8 0.8">
+                </a-entity>
+                <!-- Deur -->
+                <a-entity walker class="clickable" gltf-model="#waypoint" position="0 3 4.85" rotation="0 90 0"
+                    scale="0.8 0.8 0.8">
+                </a-entity>
+            </a-entity>
+
 
             <!-- Rebus -->
             <a-entity scale="0.6 0.6 0.6">
@@ -110,15 +111,17 @@
 
             <!-- Control Room -->
             <a-entity rotation="0 180 0">
-                <!-- Muren, plafond etc -->
+                <!-- Building -->
                 <a-entity scale="0.75 0.75 0.75">
                     <a-entity gltf-model="#wall"></a-entity>
-                    <!-- <a-entity gltf-model="#roof" position="15 8 0"></a-entity> -->
+                    <a-entity gltf-model="#deur" position="0 0 -10.2" scale="1.3 1.3 1.3"></a-entity>
+
                 </a-entity>
 
                 <!-- Control center -->
                 <a-entity rotation="0 -90 0" position="-9 0 0">
 
+                    <a-entity gltf-model="#floor" position="0 0 0"></a-entity>
                     <a-entity gltf-model="#triple-monitor" scale="1.75 1.75" position="1 1 0">
                     </a-entity>
 
@@ -126,6 +129,11 @@
                     </a-entity>
 
                     <a-entity gltf-model="#laptop" position="3 1 0" rotation="0 90 0" scale='1.3 1.3 1.3'>
+                    </a-entity>
+
+                    <a-entity gltf-model="#chair" scale="0.65 0.65 0.65" position="2 0 -3" rotation="0 -30 0">
+                    </a-entity>
+                    <a-entity gltf-model="#chair" scale="0.65 0.65 0.65" position="-3 0 -3" rotation="0 30 0">
                     </a-entity>
                 </a-entity>
 
@@ -156,13 +164,13 @@
 
 
                 <!-- Control Room Licht -->
-                <a-entity>
-                    <a-entity gltf-model="#tl-buis" position="-5 6 0" rotation="0 0 0">
+                <a-entity position="0 5.7 0">
+                    <a-entity gltf-model="#tl-buis" position="-5 0 0">
                         <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
                         </a-light>
                     </a-entity>
 
-                    <a-entity gltf-model="#tl-buis" position="5 6 0" rotation="0 0 0">
+                    <a-entity gltf-model="#tl-buis" position="5 0 0">
                         <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
                         </a-light>
                     </a-entity>
