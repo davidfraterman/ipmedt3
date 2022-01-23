@@ -2,24 +2,16 @@
 window.onload = function () {
   // scene objects
   const camera = document.getElementById("js--camera");
-<<<<<<< HEAD
   let spheresmodel = document.getElementsByClassName("js--spheremodel")
   let scene = document.getElementById("js--scene");
   const placeholdermodel = document.getElementsByClassName("js-placeholderModel")
   const placeholdertext = document.getElementsByClassName("js-placeholderText")
   temphold = ''
   
-=======
-  let models = document.getElementsByClassName("js--printedmodels");
-  let spheres = document.getElementsByClassName("js--sphere");
-  const placeholder = document.getElementsByClassName("js--placeholder");
-  let scene = document.getElementById("js--scene");
->>>>>>> a5c050c2926967370cf277ef167aad44ee404eda
 
   // vars
   let hold = null;
 
-<<<<<<< HEAD
   for (var i = 0; i < spheresmodel.length; i++) {
     spheresmodel[i].addEventListener('click', function (evt) {
       if (hold == null) {
@@ -51,25 +43,3 @@ window.onload = function () {
     });
   };
 };
-=======
-  // add click (hover) listener to all pickup-able rebus images
-  for (let i = 0; i < spheres.length; i++) {
-    spheres[i].addEventListener("click", function (evt) {
-      // if not holding anything, pick up the rebus image
-      if (hold == null) {
-        for (let j = 0; j < models.length; j++) {
-          temp = evt.target;
-          console.log(temp.outerHTML);
-          camera.innerHTML +=
-            '<a-sphere position="1 -2 -1" radius="0.5">' +
-            temp.outerHTML +
-            "</a-sphere>";
-          this.remove();
-          console.log(camera.innerHTML);
-        }
-        hold = "model";
-      }
-    });
-  }
-};
->>>>>>> a5c050c2926967370cf277ef167aad44ee404eda
