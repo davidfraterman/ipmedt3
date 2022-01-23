@@ -142,6 +142,13 @@
                         </a-entity>
                     </a-sphere>
                 </a-entity>
+                <a-entity gltf-model="#lopende-band" position="0 0 -4" rotation="0 -120 0" scale='0.6 0.6 0.6'>
+                    <a-text value="STAAT UIT" position="0.178 3.5 0.02" rotation="0 90 0">
+                    </a-text>
+                    <a-entity gltf-model="#rebus_2_text_1" position="2.67 1.9 0" scale="0.5 0.5 0.5" rotation="90 180 0"
+                        animation="property: rotation; to: 90 -180 0; loop: true; dur: 4000; easing: linear;">
+                    </a-entity>
+                </a-entity>
             </a-entity>
 
             <!-- placeholders for the hints -->
@@ -156,13 +163,7 @@
                 <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black" position="3 -2 0"></a-box>
             </a-entity>
 
-            <a-entity gltf-model="#lopende-band" position="0 0 -4" rotation="0 -120 0" scale='0.6 0.6 0.6'>
-                <a-text value="STAAT UIT" position="0.178 3.5 0.02" rotation="0 90 0">
-                </a-text>
-                <a-entity gltf-model="#rebus_2_text_1" position="2.67 1.9 0" scale="0.5 0.5 0.5" rotation="90 180 0"
-                    animation="property: rotation; to: 90 -180 0; loop: true; dur: 4000; easing: linear;">
-                </a-entity>
-            </a-entity>
+
         </a-entity>
 
             <!-- Control Room Licht -->
