@@ -39,7 +39,7 @@ window.onload = function () {
         sphere.setAttribute("material", "transparent: true; opacity: 0");
         sphere.setAttribute("position", {
           x: -this.getAttribute("position").x,
-          y: 2.6,
+          y: 2.1,
           z: -6.5,
         });
         sphere.innerHTML += temphold;

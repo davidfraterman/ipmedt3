@@ -51,18 +51,15 @@
         <a-entity environment="preset:starry;groundColor: #0f0f0f; gridColor: #0095ff;">
         </a-entity>
 
-            <a-entity camera wasd-controls="acceleration: 30" look-controls position="0 1.6 0" id='js--camera'>
-                <a-entity
-                    animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-                    animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-                    animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-                    cursor="fuse: true; fuseTimeout: 1500"
-                    material="color: black; shader: flat"
-                    position="0 0 -0.5"
-                    geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01"
-                    raycaster="objects: .clickable">
-                </a-entity>
+        <a-entity camera wasd-controls="acceleration: 30" look-controls position="0 1.6 0" id='js--camera'>
+            <a-entity
+                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                cursor="fuse: true; fuseTimeout: 1500" material="color: black; shader: flat" position="0 0 -0.5"
+                geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" raycaster="objects: .clickable">
             </a-entity>
+        </a-entity>
         </a-entity>
 
         <!-- Way points -->
@@ -78,6 +75,9 @@
             </a-entity>
             <!-- Deur -->
             <a-entity walker class="clickable" gltf-model="#waypoint" position="0 0 4.85" scale="0.8 0.8 0.8">
+            </a-entity>
+            <!-- Puzzel placeholders -->
+            <a-entity walker class="clickable" gltf-model="#waypoint" position="0 0 -3.5" scale="0.8 0.8 0.8">
             </a-entity>
         </a-entity>
 
@@ -152,32 +152,54 @@
             </a-entity>
 
             <!-- placeholders for the hints -->
-            <a-entity position="0 4 6.5">
-                <a-cylinder class="js-placeholderModel clickable" height="0.2" radius="0.5" material="color:white; transparent:true; opacity:0.1" rotation="90 0 0" position="-1 0 0"></a-cylinder>
-                <a-cylinder class="js-placeholderModel clickable" height="0.2" radius="0.5" material="color:white; transparent:true; opacity:0.1" rotation="90 0 0" position="-3 0 0"></a-cylinder>
-                <a-cylinder class="js-placeholderModel clickable" height="0.2" radius="0.5" material="color:white; transparent:true; opacity:0.1" rotation="90 0 0" position="1 0 0"></a-cylinder>
-                <a-cylinder class="js-placeholderModel clickable" height="0.2" radius="0.5" material="color:white; transparent:true; opacity:0.1" rotation="90 0 0" position="3 0 0"></a-cylinder>
-                <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black" position="-1 -2 0"></a-box>
-                <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black" position="-3 -2 0"></a-box>
-                <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black" position="1 -2 0"></a-box>
-                <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black" position="3 -2 0"></a-box>
+            <a-entity position="0 3.5 6.5">
+                <!-- Cylinders -->
+                <a-entity rotation="90 0 0">
+                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="-1 0 0">
+                    </a-cylinder>
+                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="-3 0 0">
+                    </a-cylinder>
+                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="1 0 0">
+                    </a-cylinder>
+                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="3 0 0">
+                    </a-cylinder>
+                </a-entity>
+                <!-- Boxes -->
+                <a-entity>
+                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
+                        position="-1 -2 0">
+                    </a-box>
+                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
+                        position="-3 -2 0">
+                    </a-box>
+                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
+                        position="1 -2 0">
+                    </a-box>
+                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
+                        position="3 -2 0">
+                    </a-box>
+                </a-entity>
             </a-entity>
 
 
         </a-entity>
 
-            <!-- Control Room Licht -->
-            <a-entity position="0 5.7 0">
-                <a-entity gltf-model="#tl-buis" position="-5 0 0">
-                    <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
-                    </a-light>
-                </a-entity>
-
-                <a-entity gltf-model="#tl-buis" position="5 0 0">
-                    <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
-                    </a-light>
-                </a-entity>
+        <!-- Control Room Licht -->
+        <a-entity position="0 5.7 0">
+            <a-entity gltf-model="#tl-buis" position="-5 0 0">
+                <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
+                </a-light>
             </a-entity>
+
+            <a-entity gltf-model="#tl-buis" position="5 0 0">
+                <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
+                </a-light>
+            </a-entity>
+        </a-entity>
         </a-entity>
     </a-scene>
 </body>
