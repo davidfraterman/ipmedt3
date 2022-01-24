@@ -9,9 +9,10 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script
         src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
-    <script src="./script/main.js"></script>
+    <!-- <script src="./script/main.js"></script> -->
     <script src="./components/walker.js"></script>
     <script src="./components/door-button.js"></script>
+    <script src="./components/rebus.js"></script>
 </head>
 
 <body>
@@ -62,19 +63,20 @@
         <a-entity environment="preset:starry;groundColor: #0f0f0f; gridColor: #0095ff;">
         </a-entity>
 
-        <!-- Camera -->
-        <a-entity camera wasd-controls="acceleration: 30" look-controls position="0 1.6 0" id='js--camera'>
-            <a-entity
-                animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-                animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-                animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-                cursor="fuse: true; fuseTimeout: 1500" material="color: #1BE2FF; shader: flat" position="0 0 -0.5"
-                geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" raycaster="objects: .clickable">
+        <a-entity id="camerarig" position="0 1.6 0">
+            <a-entity camera wasd-controls="acceleration: 30" look-controls id='js--camera'>
+                <a-entity
+                    animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+                    animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+                    animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+                    cursor="fuse: true; fuseTimeout: 1500" material="color: #1BE2FF; shader: flat" position="0 0 -0.5"
+                    geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.01" raycaster="objects: .clickable">
+                </a-entity>
+                <a-image id="js--fov-reduction" visible="false" opacity="0" src="#black-image" position="0 0 -0.2">
+                </a-image>
             </a-entity>
-            <a-image id="js--fov-reduction" visible="false" opacity="0" src="#black-image" position="0 0 -0.2">
-            </a-image>
         </a-entity>
-        </a-entity>
+        /a-entity>
 
         <!-- Way points -->
         <a-entity position="0 3 0">
@@ -201,7 +203,7 @@
                 <a-entity gltf-model="#printer" position="0 0 4" rotation="0 -120 0" scale='0.85 0.85 0.85'>
                     <a-text value="STAAT UIT" position="-0.66 0.8 0.8" rotation="-25 0 0">
                     </a-text>
-                    <a-sphere class="js--spheremodel clickable" position="0 1.4 -0.1"
+                    <a-sphere pickuprebusparts class="js--spheremodel clickable" position="0 1.4 -0.1"
                         material="color:white; transparent: true; opacity: 0.1" radius="0.5">
                         <a-entity class="js--printedmodels " gltf-model="#rebus_2_plaatje_1" position="0 0 0"
                             scale="0.3 0.3 0.3" rotation="90 180 0"
@@ -235,16 +237,16 @@
 
                 <!-- Cylinders -->
                 <a-entity rotation="90 0 0">
-                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="-1 0 0">
                     </a-cylinder>
-                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="-3 0 0">
                     </a-cylinder>
-                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="1 0 0">
                     </a-cylinder>
-                    <a-cylinder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="3 0 0">
                     </a-cylinder>
                 </a-entity>

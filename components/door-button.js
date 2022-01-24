@@ -3,7 +3,7 @@ AFRAME.registerComponent("door-button", {
   schema: {},
   init: function () {
     // ------ ZET DEZE OP FALSE OF TRUE OM COMPLETION VAN SPEL TE SIMULEREN ------
-    let isGameComplete = false;
+    let isGameComplete = true;
 
     // scene objects
     const button = this.el;
@@ -59,9 +59,9 @@ AFRAME.registerComponent("door-button", {
           setTimeout(() => {
             // checkt welke knop het is, om te bepalen waar heen te teleporten
             if (loc === "outside") {
-              camera.setAttribute("position", "0 1.6 4.85");
+              camera.setAttribute("position", "0 0 4.85");
             } else {
-              camera.setAttribute("position", "0 1.6 11.2");
+              camera.setAttribute("position", "0 0 11.2");
             }
 
             // animeer zwarte afbeelding tot opacity 0

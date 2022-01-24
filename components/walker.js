@@ -2,7 +2,7 @@
 AFRAME.registerComponent("walker", {
   schema: {},
   init: function () {
-    const camera = document.getElementById("js--camera");
+    const camera = document.getElementById("camerarig");
     // const audio = new Audio("assets/footsteps-4.mp3")
     let walker = this.el;
 
