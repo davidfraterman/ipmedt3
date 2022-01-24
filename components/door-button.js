@@ -3,7 +3,7 @@ AFRAME.registerComponent("door-button", {
   schema: {},
   init: function () {
     // ------ ZET DEZE OP FALSE OF TRUE OM COMPLETION VAN SPEL TE SIMULEREN ------
-    let isGameComplete = true;
+    let isGameComplete = false;
 
     // scene objects
     const button = this.el;
@@ -45,6 +45,12 @@ AFRAME.registerComponent("door-button", {
 
     const teleportListener = (loc) => {
       button.addEventListener("click", () => {
+        // clicked animation
+        button.setAttribute("depth", "0.4");
+        setTimeout(() => {
+          button.setAttribute("depth", "1");
+        }, 250);
+
         if (isGameComplete || loc === "outside") {
           // zet zwarte afbeelding voor je camera visible (moet aan en uit anders zie je sommige comp. niet)
           fovReduction.setAttribute("visible", true);
