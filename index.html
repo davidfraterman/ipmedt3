@@ -69,7 +69,7 @@
         <a-entity environment="preset:starry;groundColor: #0f0f0f; gridColor: #0095ff;">
         </a-entity>
 
-        <a-entity id="camerarig" rotation="0 180 0" position="0 1.6 16">
+        <a-entity id="camerarig" rotation="0 180 0" position="0 1.6 0">
             <a-entity camera wasd-controls="acceleration: 30" look-controls id='js--camera'>
                 <a-entity
                     animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -282,7 +282,7 @@
                 <a-entity gltf-model="#printer" position="0 0 4" rotation="0 -120 0" scale='0.85 0.85 0.85'>
                     <a-text id="js--printer-text-1" value="STAAT UIT" position="-0.66 0.8 0.8" rotation="-25 0 0">
                     </a-text>
-                    <a-sphere pickuprebusparts class="js--spheremodel clickable" position="0 1.4 -0.1"
+                    <a-sphere pickuprebusmodel class="js--spheremodel clickable" position="0 1.4 -0.1"
                         material="color:white; transparent: true; opacity: 0.1" radius="0.5">
                         <a-entity class="js--printedmodels " gltf-model="#rebus_2_plaatje_1" position="0 0 0"
                             scale="0.3 0.3 0.3" rotation="90 180 0"
@@ -294,14 +294,22 @@
                 <a-entity gltf-model="#lopende-band" position="0 0 -4" rotation="0 -120 0" scale='0.6 0.6 0.6'>
                     <a-text id="js--printer-text-2" value="STAAT UIT" position="0.178 3.5 0.02" rotation="0 90 0">
                     </a-text>
-                    <a-entity gltf-model="#rebus_2_text_1" position="2.67 1.9 0" scale="0.5 0.5 0.5" rotation="90 180 0"
-                        animation="property: rotation; to: 90 -180 0; loop: true; dur: 4000; easing: linear;">
-                    </a-entity>
+                    <a-cylinder pickuprebustext class="js--spheremodel clickable" position="2.8 1.8 0"
+                        material="color:white; transparent: true; opacity: 0.1" radius="0.5" height="0.6">
+                        <a-entity gltf-model="#rebus_2_text_1" position="0 0 0" scale="0.3 0.3 0.3" rotation="90 180 0"
+                            animation="property: rotation; to: 90 -180 0; loop: true; dur: 4000; easing: linear;">
+                        </a-entity>
+                    </a-cylinder>
                 </a-entity>
             </a-entity>
 
             <!-- De rebus -->
-            <a-entity gltf-model="#rebus-table" scale='0.6 0.6 0.6' position="0 0 5.5" rotation="0 90 0"></a-entity>
+            <a-entity gltf-model="#rebus-table" position="0 -0.4 5.5" rotation="0 90 0"></a-entity>
+            <a-entity rotation="90 0 0">
+                <a-box placeintotable class="js-placeholderModel clickable" position="1.82 5.5 -0.5" height="1" width="1" depth="0.1" color="black"></a-box>
+                <a-box placeintotable class="js-placeholderModel clickable" position="0 5.5 -0.5" height="1" width="1" depth="0.1" color="black"></a-box>
+                <a-box placeintotable class="js-placeholderModel clickable" position="-1.82 5.5 -0.5" height="1" width="1" depth="0.1" color="black"></a-box>
+            </a-entity>
             <a-entity gltf-model="#placeholder-screen" position="0 2.6 6.9" rotation="0 90 0" scale="0.8 0.8 0.8">
                 <!-- Sign -->
                 <a-entity gltf-model="#floating-sign" position="0.9 2.75 0" rotation="0 0 0" scale="1 1 1">
@@ -312,36 +320,35 @@
                 </a-entity>
 
             </a-entity>
-            <a-entity position="0 3.5 6">
-
+            <a-entity>
                 <!-- Cylinders -->
                 <a-entity rotation="90 0 0">
-                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
-                        material="color:white; transparent:true; opacity:0.1" position="-1 0 0">
+                    <a-cylinder placeintomodelholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="3 6.3 -3.5">
                     </a-cylinder>
-                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
-                        material="color:white; transparent:true; opacity:0.1" position="-3 0 0">
+                    <a-cylinder placeintomodelholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="1 6.3 -3.5">
                     </a-cylinder>
-                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
-                        material="color:white; transparent:true; opacity:0.1" position="1 0 0">
+                    <a-cylinder placeintomodelholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="-1 6.3 -3.5">
                     </a-cylinder>
-                    <a-cylinder placeintoplaceholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
-                        material="color:white; transparent:true; opacity:0.1" position="3 0 0">
+                    <a-cylinder placeintomodelholder class="js-placeholderModel clickable" radius="0.5" height="0.2"
+                        material="color:white; transparent:true; opacity:0.1" position="-3 6.3 -3.5">
                     </a-cylinder>
                 </a-entity>
                 <!-- Boxes -->
-                <a-entity>
-                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
-                        position="-1 -2 0">
+                <a-entity rotation="90 0 0">
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
+                        material="color:white; transparent:true; opacity:0.1"position="3 6.3 -2">
                     </a-box>
-                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
-                        position="-3 -2 0">
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
+                        material="color:white; transparent:true; opacity:0.1" position="1 6.3 -2">
                     </a-box>
-                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
-                        position="1 -2 0">
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
+                        material="color:white; transparent:true; opacity:0.1" position="-1 6.3 -2">
                     </a-box>
-                    <a-box class="js-placeholderText clickable" depth="0.2" height="0.7" width="1.2" color="black"
-                        position="3 -2 0">
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
+                        material="color:white; transparent:true; opacity:0.1" position="-3 6.3 -2">
                     </a-box>
                 </a-entity>
             </a-entity>
