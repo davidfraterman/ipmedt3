@@ -3,11 +3,11 @@ AFRAME.registerComponent("door-button", {
   schema: {},
   init: function () {
     // ------ ZET DEZE OP FALSE OF TRUE OM COMPLETION VAN SPEL TE SIMULEREN ------
-    let isGameComplete = false;
+    let isGameComplete = true;
 
     // scene objects
     const button = this.el;
-    const camera = document.getElementById("js--camera");
+    const camera = document.getElementById("camerarig");
     const fovReduction = document.getElementById("js--fov-reduction");
     const doorScreenInside = document.getElementById("js--door-screen-inside");
 
@@ -43,6 +43,7 @@ AFRAME.registerComponent("door-button", {
       }, 350);
     };
 
+    // maak listener voor deur knoppen (door-button)
     const teleportListener = (loc) => {
       button.addEventListener("click", () => {
         // clicked animation
@@ -51,6 +52,7 @@ AFRAME.registerComponent("door-button", {
           button.setAttribute("depth", "1");
         }, 250);
 
+        // check of game is voltooid of loc is outside (want outside kan altijd naar binnen)
         if (isGameComplete || loc === "outside") {
           // zet zwarte afbeelding voor je camera visible (moet aan en uit anders zie je sommige comp. niet)
           fovReduction.setAttribute("visible", true);
@@ -65,9 +67,9 @@ AFRAME.registerComponent("door-button", {
           setTimeout(() => {
             // checkt welke knop het is, om te bepalen waar heen te teleporten
             if (loc === "outside") {
-              camera.setAttribute("position", "0 0 4.85");
+              camera.setAttribute("position", "0 1.6 5");
             } else {
-              camera.setAttribute("position", "0 0 11.2");
+              camera.setAttribute("position", "0 1.6 11.2");
             }
 
             // animeer zwarte afbeelding tot opacity 0
