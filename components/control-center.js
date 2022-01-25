@@ -83,7 +83,7 @@ AFRAME.registerComponent("control-center", {
         }
 
         // als er 1 printer aan staat, voeg percentage van 50 toe aan operationeel percentage
-        if ([...new Set(printersOn)].length === 1) {
+        if ([...new Set(printersOn)].length === 1 && percentageOperational < 50) {
           percentageOperational += 50;
           bigMonitorText.setAttribute("text", {
             value: `${percentageOperational}% OPERATIONEEL`,
@@ -95,11 +95,13 @@ AFRAME.registerComponent("control-center", {
           // info: new Set geeft unieke waardes terug van een array, voorkomt 2x dezelfde knop drukken
           // info: ... is spread operator, maakt van een array een nieuwe array + wat er binnen komt
           deskPrintersText.setAttribute("text", { color: "green" });
-          percentageOperational += 50;
-          bigMonitorText.setAttribute("text", {
-            value: `${percentageOperational}% OPERATIONEEL`,
-          });
-          bigMonitorText.setAttribute("text", { color: "green" });
+          if (percentageOperational < 100) {
+            percentageOperational += 50;
+            bigMonitorText.setAttribute("text", {
+              value: `${percentageOperational}% OPERATIONEEL`,
+            });
+            bigMonitorText.setAttribute("text", { color: "green" });
+          }
         }
       }
     };
