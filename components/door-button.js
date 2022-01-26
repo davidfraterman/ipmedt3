@@ -3,7 +3,7 @@ AFRAME.registerComponent("door-button", {
   schema: {},
   init: function () {
     // ------ ZET DEZE OP FALSE OF TRUE OM COMPLETION VAN SPEL TE SIMULEREN ------
-    let isGameComplete = true;
+    let isGameComplete = false;
 
     // scene objects
     const button = this.el;
