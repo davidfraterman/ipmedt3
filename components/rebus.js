@@ -173,6 +173,7 @@ window.onload = function () {
                 scene.appendChild(sphere);
                 setTimeout(function() {
                   answer = sphere.object3D.position.x
+                  console.log(answer)
                   if (hold.includes("1")){
                     if(String(answer) === String(text1.dataset.id)){
                       istext1correct = true
