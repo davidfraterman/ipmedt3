@@ -97,7 +97,7 @@ window.onload = function () {
       });
       
       
-      // To place rebus models into placeholders
+      // To place rebus into placeholders
       AFRAME.registerComponent('placeintoholder', {
         schema: {
         },
@@ -228,7 +228,7 @@ window.onload = function () {
     
             el.addEventListener('click', function() {
              // if the hold is a model place it on table with correct position
-              if (hold == "model"){
+              if (hold.includes("model")){
                 let sphere = document.createElement("a-sphere");
                 sphere.setAttribute("material", "transparent: true; opacity: 0");
                 sphere.setAttribute("position", {
@@ -243,7 +243,7 @@ window.onload = function () {
                 temphold=""
               }
               // if the hold is a text place it on table with correct position
-              if (hold == "text"){
+              if (hold.includes("text")){
                 let sphere = document.createElement("a-sphere");
                 sphere.setAttribute("material", "transparent: true; opacity: 0");
                 sphere.setAttribute("position", {
