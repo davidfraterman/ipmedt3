@@ -2,8 +2,17 @@ window.onload = function () {
     const camera = document.getElementById("js--camera");
     let scene = document.getElementById("js--scene");
     const placeholdertext = document.getElementsByClassName("js-placeholderText");
+    const plaatje1 = document.getElementById("js--plaatje-1");
     temphold = "";
     let hold = null;
+    let ismodel1correct = false
+    let ismodel2correct = false
+    let ismodel3correct = false
+    let ismodel4correct = false
+    let istext1correct= false
+    let istext2correct= false
+    let istext3correct= false
+    let istext4correct= false
 
 
     // To pick up rebus models
@@ -70,6 +79,7 @@ window.onload = function () {
             el.addEventListener('click', function() {
              // if the hold is a model, place it in the image placeholder
               if (hold == "model"){
+                let answer = ""
                 let sphere = document.createElement("a-sphere");
                 sphere.setAttribute("material", "transparent: true; opacity: 0");
                 sphere.setAttribute("position", {
@@ -77,11 +87,22 @@ window.onload = function () {
                   y: -this.getAttribute("position").z-1.4,
                   z: -this.getAttribute("position").y+0.7,
                 });
+
                 sphere.innerHTML += temphold;
                 scene.appendChild(sphere);
                 document.getElementById("js--hold").remove();
                 hold = null;
                 temphold=""
+                setTimeout(function() {
+                  answer = sphere.object3D.position.x
+                  if(String(answer) === String(test.dataset.id)){
+                    model1 = true
+                    console.log(model1)
+                  }
+                },1)
+
+
+                
               }
             });
         }
