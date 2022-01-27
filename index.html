@@ -15,6 +15,7 @@
     <script src="./components/rebus.js"></script>
     <script src="./components/game-code.js"></script>
     <script src="./components/control-center.js"></script>
+    <script src="./components/load-rebus.js"></script>
 </head>
 
 <body>
@@ -69,7 +70,7 @@
         <a-entity environment="preset:starry;groundColor: #0f0f0f; gridColor: #0095ff;">
         </a-entity>
 
-        <a-entity id="camerarig" rotation="0 180 0" position="0 1.6 16">
+        <a-entity id="camerarig" rotation="0 180 0" position="0 1.6 0">
             <a-entity camera wasd-controls="acceleration: 30" look-controls id='js--camera'>
                 <a-entity
                     animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -278,6 +279,15 @@
                         rotation="0 90 0" position="0.12 1.25 0" scale="9 9 9">
                     </a-entity>
                 </a-entity>
+                <!-- Refresh buttons -->
+                <a-entity>
+                    <a-box load-rebus class="clickable" position="0.5 0.5 0" scale="0.3 0.3 0.3" rotation="0 0 0"
+                        material="color:red;">
+                    </a-box>
+                    <a-box load-rebus class="clickable" position="-0.5 0.5 0" scale="0.3 0.3 0.3" rotation="0 0 0"
+                        material="color:red;">
+                    </a-box>
+                </a-entity>
                 <!-- Afbeelding printer -->
                 <a-entity gltf-model="#printer" position="0 0 4" rotation="0 -120 0" scale='0.85 0.85 0.85'>
                     <a-text id="js--printer-text-1" value="STAAT UIT" position="-0.66 0.8 0.8" rotation="-25 0 0">
@@ -306,9 +316,12 @@
             <!-- De rebus -->
             <a-entity gltf-model="#rebus-table" position="0 -0.4 5.5" rotation="0 90 0"></a-entity>
             <a-entity rotation="90 0 0">
-                <a-box placeintotable class="js-placeholderModel clickable" position="1.82 5.5 -0.5" height="1" width="1" depth="0.1" color="black"></a-box>
-                <a-box placeintotable class="js-placeholderModel clickable" position="0 5.5 -0.5" height="1" width="1" depth="0.1" color="black"></a-box>
-                <a-box placeintotable class="js-placeholderModel clickable" position="-1.82 5.5 -0.5" height="1" width="1" depth="0.1" color="black"></a-box>
+                <a-box placeintotable class="js-placeholderModel clickable" position="1.82 5.5 -0.5" height="1"
+                    width="1" depth="0.1" color="black"></a-box>
+                <a-box placeintotable class="js-placeholderModel clickable" position="0 5.5 -0.5" height="1" width="1"
+                    depth="0.1" color="black"></a-box>
+                <a-box placeintotable class="js-placeholderModel clickable" position="-1.82 5.5 -0.5" height="1"
+                    width="1" depth="0.1" color="black"></a-box>
             </a-entity>
             <a-entity gltf-model="#placeholder-screen" position="0 2.6 6.9" rotation="0 90 0" scale="0.8 0.8 0.8">
                 <!-- Sign -->
@@ -338,16 +351,16 @@
                 </a-entity>
                 <!-- Boxes -->
                 <a-entity rotation="90 0 0">
-                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
-                        material="color:white; transparent:true; opacity:0.1"position="3 6.3 -2">
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2"
+                        material="color:white; transparent:true; opacity:0.1" position="3 6.3 -2">
                     </a-box>
-                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2"
                         material="color:white; transparent:true; opacity:0.1" position="1 6.3 -2">
                     </a-box>
-                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2"
                         material="color:white; transparent:true; opacity:0.1" position="-1 6.3 -2">
                     </a-box>
-                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2" 
+                    <a-box placeintotextholder class="js-placeholderText clickable" depth="0.7" height="0.2" width="1.2"
                         material="color:white; transparent:true; opacity:0.1" position="-3 6.3 -2">
                     </a-box>
                 </a-entity>
@@ -370,6 +383,7 @@
         </a-entity>
         </a-entity>
     </a-scene>
+   
 </body>
 
 </html>
