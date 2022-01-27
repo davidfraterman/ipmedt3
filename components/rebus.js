@@ -10,8 +10,8 @@ window.onload = function () {
     const text2 = document.getElementById("js--text-2");
     const text3 = document.getElementById("js--text-3");
     const text4 = document.getElementById("js--text-4");
-    temphold = "";
-    let hold = null;
+    let temphold = "";
+    let hold = "";
     let ismodel1correct = false
     let ismodel2correct = false
     let ismodel3correct = false
@@ -33,7 +33,7 @@ window.onload = function () {
     
             el.addEventListener('click', function () {
              // if there is no current hold, set hold to the clicked element
-                if(hold == null){
+                if(hold == ""){
                   temp = el;
                   temphold = temp.outerHTML;
                   camera.innerHTML +=
@@ -70,7 +70,7 @@ window.onload = function () {
     
             el.addEventListener('click', function () {
              // if there is no current hold, set hold to the clicked element
-                if(hold == null){
+                if(hold == ""){
                   temp = el;
                   temphold = temp.outerHTML;
                   camera.innerHTML +=
@@ -158,7 +158,7 @@ window.onload = function () {
                   }
                   document.getElementById("js--hold").remove();
                   temphold=""
-                  hold = null;
+                  hold = "";
                 },1)
               }
             });
@@ -223,7 +223,7 @@ window.onload = function () {
                     }
                   }
                 document.getElementById("js--hold").remove();
-                hold = null;
+                hold = "";
                 temphold="" 
               },1)
             }
@@ -252,10 +252,10 @@ window.onload = function () {
                 sphere.innerHTML += temphold;
                 scene.appendChild(sphere);
                 document.getElementById("js--hold").remove();
-                hold = null;
+                hold = "";
                 temphold=""
               }
-                           // if the hold is a text place it on table with correct position
+              // if the hold is a text place it on table with correct position
               if (hold == "text"){
                 let sphere = document.createElement("a-sphere");
                 sphere.setAttribute("material", "transparent: true; opacity: 0");
@@ -267,7 +267,7 @@ window.onload = function () {
                 sphere.innerHTML += temphold;
                 scene.appendChild(sphere);
                 document.getElementById("js--hold").remove();
-                hold = null;
+                hold = "";
                 temphold=""
               }
             })
