@@ -22,6 +22,7 @@ AFRAME.registerComponent("control-center", {
         let printersOn = []; // array met printers die aan zijn
         let controlCenterOn = false; // true als de control center aan is
         let percentageOperational = 0; // percentage van printers die aan zijn
+        let alreadyPressedStartUp = false;
 
         // zet een printer aan bij klik op 1 vd control center knoppen
         const turnPrinterOn = (el) => {
@@ -42,7 +43,9 @@ AFRAME.registerComponent("control-center", {
                 controlCenterOn = true;
 
                 // zorgt dat alleen de control center button de andere knoppen van kleur kan veranderen
-                if (elBtn === buttonControlCenter) {
+                if (elBtn === buttonControlCenter && !alreadyPressedStartUp) {
+                    // tegen bug dat knoppen op rood gaan als je dit nog eens zou indrukken
+                    alreadyPressedStartUp = true;
                     // on startup boot up screens
                     screenPrinterText1.setAttribute("visible", true);
                     screenPrinterText2.setAttribute("visible", true);

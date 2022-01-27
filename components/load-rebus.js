@@ -10,6 +10,8 @@ AFRAME.registerComponent("load-rebus", {
         const txt2 = document.getElementById("js--text-2");
         const txt3 = document.getElementById("js--text-3");
         const txt4 = document.getElementById("js--text-4");
+        const printer1button = document.getElementById("js--desk-printers-button-1");
+        const printer2button = document.getElementById("js--desk-printers-button-2");
 
         // all rebus parts in element and string (string = for searching the api response data, element = for visibility)
         const allRebusParts = [image1, image2, image3, image4, txt1, txt2, txt3, txt4];
@@ -27,8 +29,8 @@ AFRAME.registerComponent("load-rebus", {
         const el = this.el;
         let data_holder = {};
         // depending on what button is pressed, the correct data is loaded
-        let startIndex = 0;
-        let endIndex = 7;
+        let startIndex;
+        let endIndex;
 
         // at start of game, remove all rebus parts
         const removeAllRebusParts = () => {
@@ -39,37 +41,42 @@ AFRAME.registerComponent("load-rebus", {
         };
         removeAllRebusParts();
 
-        // on api call, if puzzle is solved, corresponding rebus part is visible and clickable again
-        const spawnRebusParts = () => {
-            amtOfNewPieces = 0;
-            // if text btn is pressed, only load text pieces, if image btn is pressed, only load image pieces
-            if (el.dataset.id === "text") {
-                startIndex = 4;
-                endIndex = 8;
-            } else if (el.dataset.id === "image") {
-                startIndex = 0;
-                endIndex = 4;
-            }
+        // on api call, if puzzle is solved, the right rebus part is visible and clickable again
+        const loadPieces = (startIndex, endIndex) => {
             // if solved = false: dont load piece, if solved = true: load piece
             for (startIndex; startIndex < endIndex; startIndex++) {
                 if (data_holder[allRebusPartsToString[startIndex]].solved === false) {
                     allRebusParts[startIndex].setAttribute("visible", false);
                     allRebusParts[startIndex].removeAttribute("class", "clickable");
-                    console.log("false");
                 } else if (data_holder[allRebusPartsToString[startIndex]].solved === true) {
                     allRebusParts[startIndex].setAttribute("visible", true);
                     allRebusParts[startIndex].setAttribute("class", "clickable");
-                    console.log("true");
                 }
+            }
+        };
+
+        // checks if printers are turned on from the control center
+        const spawnRebusParts = () => {
+            if (printer1button.getAttribute("color") === "green" && el.dataset.id === "image") {
+                loadPieces(0, 4);
+                el.setAttribute("color", "green");
+            } else if (printer1button.getAttribute("color") !== "green" && el.dataset.id === "image") {
+                el.setAttribute("color", "red");
+            }
+
+            if (printer2button.getAttribute("color") === "green" && el.dataset.id === "text") {
+                loadPieces(4, 8);
+                el.setAttribute("color", "green");
+            } else if (printer2button.getAttribute("color") !== "green" && el.dataset.id === "text") {
+                el.setAttribute("color", "red");
             }
         };
 
         // clicklistener for buttons next to printers, API call
         el.addEventListener("click", () => {
-            console.log(el.dataset.id);
             // Style (pressed)
             this.el.setAttribute("height", "0.4");
-            this.el.setAttribute("color", "green");
+
             setTimeout(() => {
                 this.el.setAttribute("height", "1");
             }, 250);
