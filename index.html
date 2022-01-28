@@ -16,6 +16,7 @@
     <script src="./components/game-code.js"></script>
     <script src="./components/control-center.js"></script>
     <script src="./components/load-rebus.js"></script>
+    <script src="./components/uitleg.js"></script>
 </head>
 
 <body>
@@ -164,6 +165,31 @@
                         </a-entity>
 
                     </a-entity>
+                    <!-- uitleg -->
+                    <a-plane id="uitlegplane" 
+                        position="-3 2.3 3.8" 
+                        rotation="0 90 0"
+                        height="1" 
+                        width="2" 
+                        material="opacity:0.3; color:#0095ff"
+                        text="font: dejavu; value: Welkom op de planeet 3T-DEMPI, dit is een korte instructie; align: center;" 
+                        animation="property: material.opacity; to: 0.1; dur: 2000; dir:alternate; easing: linear; loop: true"
+                        animation__expand="property: height; to: 3; dur: 1000; easing: easeInOutExpo; startEvents: expand"
+                        animation__expand2="property: width; to: 4; dur: 1500; easing: easeInOutExpo; startEvents: expand"
+                        animation__close="property: height; to: 0; dur: 1000; easing: easeInOutExpo; startEvents: close"
+                        animation__close2="property: width; to: 0; dur: 1500; easing: easeInOutExpo; startEvents: close"
+                        animation__close3="property: text.opacity; to: 0; dur: 1500; easing: easeInOutExpo; startEvents: close">
+                        
+                        <a-triangle class="clickable" nexttext 
+                        rotation="0 0 -90"  
+                        position="0.04 -0.34 0.1" 
+                        scale="0.28 0.22 1.5"
+                        material="opacity:0.3; color:#BEDCFF"
+                        animation__expand3="property: position; to: 0.71 -1.1 0.09; dur: 1500; easing: easeInOutExpo; startEvents: expand"
+                        animation__close2="property: material.opacity; to: 0; dur: 1500; easing: easeInOutExpo; startEvents: close">
+                        </a-triangle>
+                        
+                        </a-plane>  
                 </a-entity>
 
                 <!-- Door -->
