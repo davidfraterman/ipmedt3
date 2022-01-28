@@ -1,5 +1,6 @@
 
-  AFRAME.registerComponent('nexttext', {
+ // component om de intro tekst te veranderen
+ AFRAME.registerComponent('nexttext', {
     schema: {
       
     },
@@ -10,7 +11,8 @@
       let currentpage = 0
       el.addEventListener("click", function(){
         if(currentpage == 0){
-          el.emit('expand')
+          el.emit('expand') //animatie om plane groter te maken
+          // timeout zodat de tekst de nieuwe width neemt van de plane
           setTimeout(function() {
             plane.setAttribute("text", "value", "Je bent hier voor een geheime missie, maar je bent niet de enige in de ruimte die ons signaal vanaf de aarde kan ontvangen, om ervoor te zorgen dat anderen onze berichten niet zomaar kunnen onderscheppen hebben we een speciaal communicatie systeem ontwikkeld.")
           }, 1501)
@@ -23,11 +25,11 @@
           plane.setAttribute("text", "value", "Om veiligheidsredenen gaat de deur alleen open wanneer ons bericht volledig is aangekomen.")
         }
         if(currentpage == 3){
-          plane.setAttribute("text", "value", "Ga snel naar binnen door op de startknop bij de deur te drukken.")
+          plane.setAttribute("text", "value", "Ga snel naar binnen door de deur links van je.")
         
         }
         if(currentpage == 4){
-            el.emit('close')
+            el.emit('close') //animatie om uitleg te laten verdwijenen
           }
        currentpage += 1
       
