@@ -66,6 +66,13 @@
 
             <!-- Img -->
             <img id="black-image" src="./img/black-image.jpg">
+
+            <!-- Sounds -->
+            <audio id="intronext" src="./sounds/pressed.wav" preload="auto"></audio>
+            <audio id="buttonsound" src="./sounds/buttonpressed.mp3" preload="auto"></audio>
+            <audio id="activatesound" src="./sounds/activate.wav" preload="auto"></audio>
+            <audio id="printsound" src="./sounds/print.wav" preload="auto"></audio>
+            <audio id="bgsound" src="./sounds/backgroundnoise.mp3" preload="auto"></audio>
         </a-assets>
 
         <!-- Environment -->
@@ -131,7 +138,7 @@
         </a-entity>
 
         <!-- Scene -->
-        <a-entity rotation="0 180 0">
+        <a-entity rotation="0 180 0" sound="src: #bgsound; autoplay: true; volume:0.1; loop:true;">
             <!-- Building -->
             <a-entity scale="0.75 0.75 0.75">
                 <!-- Walls -->
@@ -165,7 +172,7 @@
                         </a-entity>
 
                     </a-entity>
-                    <!-- uitleg -->
+                    <!-- Uitleg -->
                     <a-plane id="uitlegplane" 
                         position="-3 2.3 3.8" 
                         rotation="0 90 0"
@@ -185,6 +192,7 @@
                         position="0.04 -0.34 0.1" 
                         scale="0.28 0.22 1.5"
                         material="opacity:0.3; color:#BEDCFF"
+                        sound="src: #intronext; on: click"
                         animation__expand3="property: position; to: 0.71 -1.1 0.09; dur: 1500; easing: easeInOutExpo; startEvents: expand"
                         animation__close2="property: material.opacity; to: 0; dur: 1500; easing: easeInOutExpo; startEvents: close">
                         </a-triangle>
@@ -197,10 +205,12 @@
                     <a-entity gltf-model="#deur">
                         <!-- Button -->
                         <a-box door-button id="js--button" data-loc="inside" data-issolved="" class="clickable" scale="0.11 0.11 0.11"
-                            position="1 1.55 1.55">
+                            position="1 1.55 1.55"
+                            sound="src: #buttonsound; on: click">
                         </a-box>
                         <a-box door-button data-loc="outside" class="clickable" scale="0.11 0.11 0.11"
-                            material="color:green;" position="-1 1.55 -1.55">
+                            material="color:green;" position="-1 1.55 -1.55"
+                            sound="src: #buttonsound; on: click">
                         </a-box>
                         <!-- Sign -->
                         <a-entity gltf-model="#floating-sign" position="0 4.2 1.4" rotation="0 -90 0"
@@ -266,10 +276,12 @@
                     </a-entity>
                     <!-- buttons -->
                     <a-cylinder id="js--desk-printers-button-1" class="clickable" position="0.15 0.48 0"
-                        scale="0.06 0.06 0.06" rotation="-30 0 0" material="color:grey;">
+                        scale="0.06 0.06 0.06" rotation="-30 0 0" material="color:grey;"
+                        sound="src: #activatesound; on: click">
                     </a-cylinder>
                     <a-cylinder id="js--desk-printers-button-2" class="clickable" position="-0.15 0.48 0"
-                        scale="0.06 0.06 0.06" rotation="-30 0 0" material="color:grey;">
+                        scale="0.06 0.06 0.06" rotation="-30 0 0" material="color:grey;"
+                        sound="src: #activatesound; on: click">
                     </a-cylinder>
                     <!-- control center controls -->
                     <!-- text -->
@@ -278,7 +290,8 @@
                         position="-0.6 0.33 -0.2" rotation="-55 180 0" scale="1 1 1"></a-entity>
                     <!-- button -->
                     <a-cylinder id="js--desk-control-center-button" class="clickable" position="-0.58 0.48 0"
-                        scale="0.06 0.06 0.06" rotation="-30 0 0" material="color:red;">
+                        scale="0.06 0.06 0.06" rotation="-30 0 0" material="color:red;"
+                        sound="src: #activatesound; on: click">
                     </a-cylinder>
                 </a-entity>
                 <!-- Big Monitor -->
@@ -310,12 +323,14 @@
                 <!-- Button stands -->
                 <a-entity gltf-model="#stand" rotation="0 -75 0" position="0.5 0 -1.9">
                     <a-box load-rebus data-id="text" class="clickable" scale="0.15 0.15 0.15" material="color:white;"
-                        position="0 1.5 0" rotation="45 0 0">
+                        position="0 1.5 0" rotation="45 0 0"
+                        sound="src: #printsound; on: click">
                     </a-box>
                 </a-entity>
                 <a-entity gltf-model="#stand" rotation="0 -90 0" position="1.1 0 1.9">
                     <a-box load-rebus data-id="image" class="clickable" scale="0.15 0.15 0.15" material="color:white;"
-                        position="0 1.5 0" rotation="45 0 0">
+                        position="0 1.5 0" rotation="45 0 0"
+                        sound="src: #printsound; on: click">
                     </a-box>
                 </a-entity>
 
