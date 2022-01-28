@@ -98,7 +98,7 @@ window.onload = function () {
       
       
       // To place rebus into placeholders
-      AFRAME.registerComponent('placeintoholder', {
+      AFRAME.registerComponent('placeintomodelholder', {
         schema: {
         },
         init: function () {
@@ -161,6 +161,19 @@ window.onload = function () {
                   hold = "";
                 },1)
               }
+            });
+        }
+      });
+
+      AFRAME.registerComponent('placeintotextholder', {
+        schema: {
+        },
+        init: function () {
+    
+          var el = this.el;
+    
+            el.addEventListener('click', function() {
+             // if the hold is a model, place it in the image placeholder
               if (hold.includes("text")){
                 let sphere = document.createElement("a-sphere");
                 sphere.setAttribute("material", "transparent: true; opacity: 0");
@@ -218,6 +231,7 @@ window.onload = function () {
             });
         }
       });
+
 
       // To place Any into the table
       AFRAME.registerComponent('placeintotable', {
