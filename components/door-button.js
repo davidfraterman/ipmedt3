@@ -4,7 +4,7 @@ AFRAME.registerComponent("door-button", {
     init: function () {
         // ------ ZET DEZE OP FALSE OF TRUE OM COMPLETION VAN SPEL TE SIMULEREN ------
         let checkbutton = document.getElementById("js--button");
-        let isGameComplete = false
+        let isGameComplete = false;
 
         // scene objects
         const button = this.el;
@@ -22,7 +22,6 @@ AFRAME.registerComponent("door-button", {
         if (button.dataset.loc === "inside") {
             button.setAttribute("color", "red");
         }
-    
 
         // flash scherm text als je op de knop drukt (bij error bijvoorbeeld)
         const flashScreenText = (el) => {
@@ -47,7 +46,7 @@ AFRAME.registerComponent("door-button", {
                     button.setAttribute("depth", "1");
                 }, 250);
 
-                isGameComplete = Boolean(checkbutton.dataset.issolved)
+                isGameComplete = Boolean(checkbutton.dataset.issolved);
 
                 // check of game is voltooid of loc is outside (want outside kan altijd naar binnen)
                 if (isGameComplete || loc === "outside") {
