@@ -71,7 +71,7 @@
         <a-entity environment="preset:starry;groundColor: #0f0f0f; gridColor: #0095ff;">
         </a-entity>
 
-        <a-entity id="camerarig" rotation="0 180 0" position="0 1.6 0">
+        <a-entity id="camerarig" rotation="0 180 0" position="0 1.6 16">
             <a-entity camera wasd-controls="acceleration: 30" look-controls id='js--camera'>
                 <a-entity
                     animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
@@ -110,7 +110,7 @@
         </a-entity>
 
         <!-- Rebus (INVISIBLE!) -->
-        <a-entity scale="0.6 0.6 0.6" visible="true">
+        <a-entity scale="0.6 0.6 0.6" visible="false">
             <a-entity id="rebus_2_plaatje_1" gltf-model="#rebus_2_plaatje_1" position="6 5.5 10" rotation="90 180 0">
             </a-entity>
             <a-entity id="rebus_2_text_1" gltf-model="#rebus_2_text_1" position="6 3 10" rotation="90 180 0">
@@ -170,7 +170,7 @@
                 <a-entity position="0 0 -10.8" scale="1.3 1.3 1.3">
                     <a-entity gltf-model="#deur">
                         <!-- Button -->
-                        <a-box door-button data-loc="inside" class="clickable" scale="0.11 0.11 0.11"
+                        <a-box door-button id="js--button" data-loc="inside" data-issolved="" class="clickable" scale="0.11 0.11 0.11"
                             position="1 1.55 1.55">
                         </a-box>
                         <a-box door-button data-loc="outside" class="clickable" scale="0.11 0.11 0.11"
@@ -380,31 +380,31 @@
             <a-entity>
                 <!-- Cylinders -->
                 <a-entity rotation="90 0 0">
-                    <a-cylinder placeintomodelholder class="clickable" radius="0.5" height="0.2"
+                    <a-cylinder check placeintomodelholder class="clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="3 6.3 -3.5">
                     </a-cylinder>
-                    <a-cylinder placeintomodelholder class="clickable" radius="0.5" height="0.2"
+                    <a-cylinder check placeintomodelholder class="clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="1 6.3 -3.5">
                     </a-cylinder>
-                    <a-cylinder placeintomodelholder class="clickable" radius="0.5" height="0.2"
+                    <a-cylinder check placeintomodelholder class="clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="-1 6.3 -3.5">
                     </a-cylinder>
-                    <a-cylinder placeintomodelholder class="clickable" radius="0.5" height="0.2"
+                    <a-cylinder check placeintomodelholder class="clickable" radius="0.5" height="0.2"
                         material="color:white; transparent:true; opacity:0.1" position="-3 6.3 -3.5">
                     </a-cylinder>
                 </a-entity>
                 <!-- Boxes -->
                 <a-entity rotation="90 0 0">
-                    <a-box placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
+                    <a-box check placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
                         material="color:white; transparent:true; opacity:0.1"position="3 6.3 -2">
                     </a-box>
-                    <a-box placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
+                    <a-box check placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
                         material="color:white; transparent:true; opacity:0.1" position="1 6.3 -2">
                     </a-box>
-                    <a-box placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
+                    <a-box check placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
                         material="color:white; transparent:true; opacity:0.1" position="-1 6.3 -2">
                     </a-box>
-                    <a-box placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
+                    <a-box check placeintotextholder class="clickable" depth="0.7" height="0.2" width="1.2" 
                         material="color:white; transparent:true; opacity:0.1" position="-3 6.3 -2">
                     </a-box>
                 </a-entity>
@@ -416,12 +416,12 @@
         <!-- Control Room Licht -->
         <a-entity position="0 5.7 0">
             <a-entity gltf-model="#tl-buis" position="-5 0 0">
-                <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
+                <a-light id="lightsource1" type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
                 </a-light>
             </a-entity>
 
             <a-entity gltf-model="#tl-buis" position="5 0 0">
-                <a-light type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
+                <a-light id="lightsource2" type="point" position="0 -0.8 0" color="#bdbdff" intensity="3" distance="30" light="">
                 </a-light>
             </a-entity>
         </a-entity>

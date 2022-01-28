@@ -10,16 +10,25 @@ window.onload = function () {
     const text2 = document.getElementById("js--text-2");
     const text3 = document.getElementById("js--text-3");
     const text4 = document.getElementById("js--text-4");
+    let checkbutton = document.getElementById("js--button");
+    let lightsource1 = document.getElementById("lightsource1")
+    let lightsource2 = document.getElementById("lightsource2")
+    const doorScreenInside = document.getElementById("js--door-screen-inside");
+    // door screen inside style & txt
+    const insideScreenTxt = (txt, color) => {
+        doorScreenInside.setAttribute("text", { value: txt });
+        doorScreenInside.setAttribute("text", { color: color });
+    };
     let temphold = "";
     let hold = "";
-    let ismodel1correct = false
-    let ismodel2correct = false
-    let ismodel3correct = false
-    let ismodel4correct = false
-    let istext1correct= false
-    let istext2correct= false
-    let istext3correct= false
-    let istext4correct= false
+    let ismodel1correct = true
+    let ismodel2correct = true
+    let ismodel3correct = true
+    let ismodel4correct = true
+    let istext1correct= true
+    let istext2correct= true
+    let istext3correct= true
+    let istext4correct= true
 
 
     // To pick up rebus models
@@ -94,10 +103,9 @@ window.onload = function () {
                 }   
             });
         }   
-      });
+      });  
       
-      
-      // To place rebus into placeholders
+      // To place rebus into modelplaceholders
       AFRAME.registerComponent('placeintomodelholder', {
         schema: {
         },
@@ -165,6 +173,7 @@ window.onload = function () {
         }
       });
 
+      // To place rebus into textplaceholders
       AFRAME.registerComponent('placeintotextholder', {
         schema: {
         },
@@ -228,10 +237,9 @@ window.onload = function () {
                 temphold="" 
               },1)
             }
-            });
+          });
         }
       });
-
 
       // To place Any into the table
       AFRAME.registerComponent('placeintotable', {
@@ -275,4 +283,33 @@ window.onload = function () {
             })
           }
       })
+
+      // To check if game is complete, to change visuals
+      AFRAME.registerComponent('check', {
+        schema: {
+        },
+    
+        init: function () {
+          
+          var el = this.el;  
+    
+          el.addEventListener('click', function () {
+           // if there is no current hold, set hold to the clicked element
+            setTimeout(function() {  
+              if (ismodel1correct == true && ismodel2correct == true && ismodel3correct == true && ismodel4correct == true && istext1correct == true && istext2correct == true && istext3correct == true && istext4correct == true) {
+                checkbutton.dataset.issolved = '1'
+                console.log(Boolean(checkbutton.dataset.issolved))
+                lightsource1.setAttribute("color", "lightgreen")
+                lightsource2.setAttribute("color", "lightgreen")
+                checkbutton.setAttribute
+                if (Boolean(checkbutton.dataset.issolved)) {
+                  // knop groen, tekst OPEN en groen
+                  checkbutton.setAttribute("color", "green");
+                  insideScreenTxt("OPEN", "green");
+                }   
+              }
+            },1)
+          });   
+        }
+      })   
     }
