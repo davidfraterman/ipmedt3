@@ -21,14 +21,14 @@ window.onload = function () {
     };
     let temphold = "";
     let hold = "";
-    let ismodel1correct = true
-    let ismodel2correct = true
-    let ismodel3correct = true
-    let ismodel4correct = true
-    let istext1correct= true
-    let istext2correct= true
-    let istext3correct= true
-    let istext4correct= true
+    let ismodel1correct = false
+    let ismodel2correct = false
+    let ismodel3correct = false
+    let ismodel4correct = false
+    let istext1correct= false
+    let istext2correct= false
+    let istext3correct= false
+    let istext4correct= false
 
 
     // To pick up rebus models
