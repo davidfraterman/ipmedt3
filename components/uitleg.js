@@ -14,11 +14,11 @@
           el.emit('expand') //animatie om plane groter te maken
           // timeout zodat de tekst de nieuwe width neemt van de plane
           setTimeout(function() {
-            plane.setAttribute("text", "value", "Je bent hier voor een geheime missie, maar je bent niet de enige in de ruimte die ons signaal vanaf de aarde kan ontvangen, om ervoor te zorgen dat anderen onze berichten niet zomaar kunnen onderscheppen hebben we een speciaal communicatie systeem ontwikkeld.")
+            plane.setAttribute("text", "value", "Je bent hier voor een geheime missie, maar je bent niet de enige in de ruimte die ons signaal vanaf de aarde kan ontvangen. Om ervoor te zorgen dat anderen onze berichten niet zomaar kunnen onderscheppen, hebben we een speciaal communicatie systeem ontwikkeld.")
           }, 1501)
         }
         if(currentpage == 1){
-          plane.setAttribute("text", "value", "Dit systeem is te gebruiken via de bunker naast je. Hierin vind je het control center, en twee printers. Gebruik deze om ons bericht te ontvangen.")
+          plane.setAttribute("text", "value", "Dit systeem is te gebruiken via de bunker naast je. Hierin vind je het control center en twee printers. Gebruik deze om ons bericht te ontvangen.")
         
         }
         if(currentpage == 2){
